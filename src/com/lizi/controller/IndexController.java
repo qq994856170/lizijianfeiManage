@@ -11,11 +11,11 @@ import com.lizi.validator.LoginValidator;
 public class IndexController extends Controller {
 	public void main(){
 		setAttr("user_login", getSessionAttr("user_login"));
-		render("/WEB-INF/manager/index.html");
+		render("index.html");
 	}
 	@ClearInterceptor(ClearLayer.ALL)
 	public void index(){
-		render("/WEB-INF/manager/login.htm");
+		render("/login.htm");
 	}
 	@ClearInterceptor(ClearLayer.ALL)
 	@Before(LoginValidator.class)
@@ -23,7 +23,7 @@ public class IndexController extends Controller {
 		String method=getRequest().getMethod();
 		if("GET".equals(method.toUpperCase())){
 			setAttr("msg", "非法的请求");
-			render("/WEB-INF/manager/login.htm");
+			render("/login.htm");
 			return;
 		}
 		String username=getPara("TxtUserName");
@@ -33,13 +33,13 @@ public class IndexController extends Controller {
 		if(u==null){
 			keepPara();
 			setAttr("msg", "您输入的用户名不存在");
-			render("/WEB-INF/manager/login.htm");
+			render("/login.htm");
 			return;
 		}
 		if(!u.getStr("password").equals(encode)){
 			keepPara();
 			setAttr("msg", "您输入的密码不正确");
-			render("/WEB-INF/manager/login.htm");
+			render("/login.htm");
 			return;
 		}
 		setSessionAttr("user_login", u);
@@ -49,11 +49,7 @@ public class IndexController extends Controller {
 	
 	public void  logout(){
 		removeSessionAttr("user_login");
-		render("/WEB-INF/manager/login.htm");
+		render("/login.htm");
 	}
-	
-	public void test(){
-		setAttr("text", "阿斯顿哈斯接电话");
-		render("/WEB-INF/manager/test.html");
-	}
+
 }

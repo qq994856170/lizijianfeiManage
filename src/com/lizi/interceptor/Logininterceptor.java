@@ -13,7 +13,7 @@ public class Logininterceptor implements Interceptor {
 		HttpSession session=ai.getController().getSession();
 		if(session.getAttribute("user_login")==null){
 			ai.getController().setAttr("msg", "您还没有登录请登录");
-			ai.getController().render("/WEB-INF/manager/login.htm");
+			ai.getController().render("/login.htm");
 		}else{
 			ai.invoke();
 		}

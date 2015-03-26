@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>简单实用国产jQuery UI框架 - DWZ富客户端框架(J-UI.com)</title>
+<title>丽子减肥瘦身馆后台管理系统</title>
 
 <link href="${ctx}/themes/default/style.css" rel="stylesheet" type="text/css" media="screen"/>
 <link href="${ctx}/themes/css/core.css" rel="stylesheet" type="text/css" media="screen"/>
@@ -30,8 +30,8 @@
 <script type="text/javascript">
 $(function(){
 	DWZ.init("${ctx}/dwz.frag.xml", {
-		loginUrl:"login_dialog.html", loginTitle:"登录",	// 弹出登录对话框
-//		loginUrl:"login.html",	// 跳到登录页面
+//		loginUrl:"login_dialog.html", loginTitle:"登录",	// 弹出登录对话框
+		loginUrl:"${ctx}/login.html",	// 跳到登录页面
 		statusCode:{ok:200, error:300, timeout:301}, //【可选】
 		pageInfo:{pageNum:"pageNum", numPerPage:"numPerPage", orderField:"orderField", orderDirection:"orderDirection"}, //【可选】
 		keys: {statusCode:"statusCode", message:"message"}, //【可选】
@@ -86,10 +86,18 @@ $(function(){
 					<div class="accordionContent">
 						<ul class="tree treeFolder">
 							<li><a href="main.html" target="navTab" rel="main">我的主页</a></li>
-									<li><a href="${ctx}/index/test" target="navTab" rel="page1">Test</a></li>
-									<li><a href="demo_page2.html" target="navTab" rel="external" external="true">iframe navTab页面</a></li>
-									<li><a href="demo_page1.html" target="navTab" rel="page1" fresh="false">替换页面一</a></li>
-
+							<li><a>客户管理</a>
+							<ul class="tree treeFolder">
+								<li><a href="${ctx}/cust/byAdd" target="navTab" rel="page1">添加客户</a></li>
+								
+							</ul>
+							</li>
+							<li><a>产品管理</a>
+							<ul class="tree treeFolder">
+								<li><a href="${ctx}/goods/byAdd" target="navTab" rel="page1">添加产品</a></li>
+								
+							</ul>
+							</li>
 							</ul>
 					</div>
 					

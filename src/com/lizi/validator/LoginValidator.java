@@ -8,7 +8,7 @@ public class LoginValidator extends Validator {
 	@Override
 	protected void handleError(Controller c) {
 		c.keepPara();
-		c.render("/WEB-INF/manager/login.htm");
+		c.render("/login.htm");
 	}
 
 	@Override
